@@ -9,16 +9,14 @@ import (
 
 func ExampleDP() {
 	d, dp := levenshtein.DP("kitten", "sitting")
-	fmt.Println(d)
 
-	fmt.Println()
+	fmt.Println(d)
 	for _, r := range dp {
 		fmt.Println(r)
 	}
 
 	// Output:
 	// 3
-	//
 	// [0 1 2 3 4 5 6 7]
 	// [1 1 2 3 4 5 6 7]
 	// [2 2 1 2 3 4 5 6]
