@@ -1,5 +1,26 @@
 package levenshtein
 
+type Algorithm int
+
+const (
+	DynamicProgramming = iota
+	Recursion
+)
+
+func Distance(s0, s1 string, alg ...Algorithm) int {
+	if len(alg) == 0 {
+		alg = append(alg, DynamicProgramming)
+	}
+
+	switch alg[0] {
+	case Recursion:
+		return Rec(s0, s1)
+	}
+
+	d, _ := DP(s0, s1)
+	return d
+}
+
 func DP(s0, s1 string) (int, [][]int) {
 	r0, r1 := []rune(s0), []rune(s1)
 	n, m := len(r0), len(r1)

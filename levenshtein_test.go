@@ -7,10 +7,21 @@ import (
 	"github.com/itsubaki/levenshtein"
 )
 
+func ExampleDistance() {
+	fmt.Println(levenshtein.Distance("kitten", "sitting"))
+	fmt.Println(levenshtein.Distance("kitten", "sitting", levenshtein.Recursion))
+	fmt.Println(levenshtein.Distance("kitten", "sitting", levenshtein.DynamicProgramming))
+
+	// Output:
+	// 3
+	// 3
+	// 3
+}
+
 func ExampleDP() {
 	d, dp := levenshtein.DP("kitten", "sitting")
-
 	fmt.Println(d)
+
 	for _, r := range dp {
 		fmt.Println(r)
 	}

@@ -1,10 +1,17 @@
 # levenshtein
 
+```golang
+d := levenshtein.Distance("kitten", "sitting")
+fmt.Println(d)
+
+// Output:
+// 3
+```
 
 ```golang
 d, dp := levenshtein.DP("kitten", "sitting")
-
 fmt.Println(d)
+
 for _, r := range dp {
 	fmt.Println(r)
 }
