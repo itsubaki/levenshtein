@@ -12,8 +12,7 @@ func Distance(s0, s1 string, alg ...Algorithm) int {
 		alg = append(alg, DynamicProgramming)
 	}
 
-	switch alg[0] {
-	case Recursion:
+	if alg[0] == Recursion {
 		return Rec(s0, s1)
 	}
 
