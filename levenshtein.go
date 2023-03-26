@@ -7,6 +7,7 @@ const (
 	Recursion
 )
 
+// Distance returns the Levenshtein distance between s0 and s1.
 func Distance(s0, s1 string, alg ...Algorithm) int {
 	if len(alg) == 0 {
 		alg = append(alg, DynamicProgramming)
@@ -20,6 +21,7 @@ func Distance(s0, s1 string, alg ...Algorithm) int {
 	return d
 }
 
+// DP returns the Levenshtein distance between s0 and s1 and the dynamic programming matrix.
 func DP(s0, s1 string) (int, [][]int) {
 	r0, r1 := []rune(s0), []rune(s1)
 	n, m := len(r0), len(r1)
@@ -54,6 +56,7 @@ func DP(s0, s1 string) (int, [][]int) {
 	return d[n][m], d
 }
 
+// Rec returns the Levenshtein distance between s0 and s1 using recursion.
 func Rec(s0, s1 string) int {
 	r0, r1 := []rune(s0), []rune(s1)
 

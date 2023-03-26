@@ -7,6 +7,18 @@ import (
 	"github.com/itsubaki/levenshtein"
 )
 
+func BenchmarkDP(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		levenshtein.DP("kitten", "sitting")
+	}
+}
+
+func BenchmarkRec(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		levenshtein.Rec("kitten", "sitting")
+	}
+}
+
 func ExampleDistance() {
 	fmt.Println(levenshtein.Distance("kitten", "sitting"))
 	fmt.Println(levenshtein.Distance("kitten", "sitting", levenshtein.Recursion))
